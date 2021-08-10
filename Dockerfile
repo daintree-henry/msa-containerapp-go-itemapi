@@ -12,6 +12,4 @@ FROM scratch
 
 COPY --from=builder /app/msa-containerapp-go-itemapi /bin/app
 
-EXPOSE 80
-
 ENTRYPOINT ["/bin/app"]
