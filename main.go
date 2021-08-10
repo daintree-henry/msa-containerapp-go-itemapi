@@ -13,7 +13,7 @@ func main() {
 	router.POST("/api/items", controllers.CreateItem)
 	router.DELETE("/api/items/:id", controllers.DeleteItem)
 
-	if err := router.Run(":80"); err != nil {
+	if err := router.Run(":8080"); err != nil {
 		panic(err)
 	}
 }
