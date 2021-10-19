@@ -1,0 +1,19 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: msa-containerapp-go-itemapi
+  labels:
+    app: msa-containerapp-go-itemapi
+    app.kubernetes.io/component: msa-containerapp-go-itemapi
+    app.kubernetes.io/instance: msa-containerapp-go-itemapi
+    app.kubernetes.io/name: msa-containerapp-go-itemapi
+spec:
+  ports:
+    - name: 8080-tcp
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+  selector:
+    app: msa-containerapp-go-itemapi
+    deploymentconfig: msa-containerapp-go-itemapi
+  type: ClusterIP

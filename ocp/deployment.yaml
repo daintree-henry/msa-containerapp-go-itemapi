@@ -1,0 +1,25 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: msa-containerapp-go-itemapi
+  labels:
+    app: msa-containerapp-go-itemapi
+    app.kubernetes.io/component: msa-containerapp-go-itemapi
+    app.kubernetes.io/instance: msa-containerapp-go-itemapi
+    app.kubernetes.io/name: msa-containerapp-go-itemapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: msa-containerapp-go-itemapi
+  template:
+    metadata:
+      labels:
+        app: msa-containerapp-go-itemapi
+        deploymentconfig: msa-containerapp-go-itemapi
+    spec:
+      containers:
+        - name: msa-containerapp-go-itemapi
+          image: >-
+            image-registry.openshift-image-registry.svc:5000/cicd-demo/msa-containerapp-go-itemapi
+          imagePullPolicy: Always
