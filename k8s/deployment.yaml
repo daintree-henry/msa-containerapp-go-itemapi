@@ -1,20 +1,19 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: msa-go-itemapi
+  name: itemapi
   labels:
-    app: msa-go-itemapi
+    app: item
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: msa-go-itemapi
+      app: item
   template:
     metadata:
       labels:
-        app: msa-go-itemapi
-        deploymentconfig: msa-go-itemapi
+        app: item
     spec:
       containers:
         - name: msa-go-itemapi
-          image: docker.io/dainforest/msa-containerapp-go-itemapi:v1
+          image: docker.io/dainforest/msa-go-itemapi:v1
